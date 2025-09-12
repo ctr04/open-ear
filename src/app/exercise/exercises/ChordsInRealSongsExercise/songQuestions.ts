@@ -9953,6 +9953,109 @@ const allQuestions: DeepReadonly<YouTubeSongQuestion[]> = [
     endSeconds: 181.94,
     section: 'Chorus B-part 2',
   },
+  {
+    name: 'Jellicle Songs for Jellicle Cats',
+    artist: 'Andrew Lloyd Webber',
+    section: 'Verse (1)',
+    tonic: 'E',
+    mode: 6,
+    analysis: '1-major-6-minor',
+    videoId: 'PNl7ffBvg0c',
+    chords: [
+      {
+        seconds: 65.78,
+        chord: 'vi',
+      },
+      {
+        seconds: 67.48,
+        chord: 'bVII',
+      },
+      {
+        seconds: 70.91,
+        chord: 'V',
+      },
+      {
+        seconds: 72.5,
+        chord: 'vi',
+      },
+    ],
+    endSeconds: 75.87,
+  },
+  {
+    name: 'Jellicle Songs for Jellicle Cats',
+    artist: 'Andrew Lloyd Webber',
+    tonic: 'E',
+    section: 'Chorus',
+    mode: 1,
+    videoId: 'PNl7ffBvg0c',
+    chords: [
+      {
+        seconds: 52,
+        chord: 'I',
+      },
+      {
+        seconds: 53.15,
+        chord: 'I/3',
+      },
+      {
+        seconds: 53.57,
+        chord: 'IV',
+      },
+      {
+        seconds: 54.79,
+        chord: 'V',
+      },
+      {
+        chord: 'I',
+        seconds: 55.47,
+      },
+      {
+        chord: 'I/3',
+        seconds: 56.61,
+      },
+      {
+        chord: 'IV',
+        seconds: 57.02,
+      },
+      {
+        chord: 'V',
+        seconds: 58.41,
+      },
+    ],
+    endSeconds: 58.75,
+  },
+  {
+    name: 'Jellicle Songs for Jellicle Cats',
+    artist: 'Andrew Lloyd Webber',
+    tonic: 'E',
+    mode: 6,
+    analysis: '1-major-6-minor',
+    videoId: 'PNl7ffBvg0c',
+    chords: [
+      {
+        seconds: 75.8,
+        chord: 'IVmaj7',
+      },
+      {
+        seconds: 77.57,
+        chord: 'bVII7',
+      },
+      {
+        seconds: 79.33,
+        chord: 'bIII',
+      },
+      {
+        seconds: 79.9,
+        chord: 'III',
+      },
+      {
+        chord: 'VI',
+        seconds: 80.98,
+      },
+    ],
+    endSeconds: 82.66,
+    section: 'Verse (2)',
+  },
 ];
 
 // console.log('Total Song Questions', allQuestions.length);

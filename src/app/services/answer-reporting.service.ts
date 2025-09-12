@@ -4,7 +4,7 @@ import { Platform } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { ExerciseSettings } from '../exercise/exercise-logic';
+import { ExerciseSettings, Question } from '../exercise/exercise-logic';
 import { CurrentAnswer } from '../exercise/exercise.page/state/exercise-state.service';
 import { GlobalExerciseSettings } from '../exercise/utility';
 import { StorageService } from '../storage/storage.service';
@@ -82,6 +82,7 @@ export class AnswerReportingService implements OnDestroy {
   }
 
   async reportQuestion(params: {
+    question: Question;
     exerciseId: string;
     globalSettings: GlobalExerciseSettings;
     exerciseSettings: ExerciseSettings;
@@ -118,6 +119,8 @@ export class AnswerReportingService implements OnDestroy {
     }
 
     this._attempts.length = 0;
+
+    return data;
   }
 
   private _getUserOS(): string {
@@ -141,7 +144,7 @@ export class AnswerReportingService implements OnDestroy {
           this._firestore,
           environment.production ? 'user-answers' : 'user-answers-test',
         ),
-        data,
+        filterFunctionsRec(data),
       );
     } catch (error) {
       console.error('Failed to send data to Firestore:', error);
@@ -192,4 +195,22 @@ export class AnswerReportingService implements OnDestroy {
     const cachedAnswers = await this._getCachedAnswers();
     return cachedAnswers.length;
   }
+}
+
+function filterFunctionsRec(obj: any): any {
+  if (Array.isArray(obj)) {
+    return obj.map((item) => filterFunctionsRec(item)) as any;
+  }
+  if (typeof obj === 'object' && obj !== null) {
+    const newObj = { ...obj };
+    for (const key in newObj) {
+      if (typeof newObj[key] === 'function') {
+        delete newObj[key];
+        continue;
+      }
+      newObj[key] = filterFunctionsRec(newObj[key]);
+    }
+    return newObj;
+  }
+  return obj;
 }

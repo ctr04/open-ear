@@ -279,6 +279,7 @@ export class ExerciseStateService<
         )
       ) {
         this._answerReporting.reportQuestion({
+          question: this._currentQuestion,
           exerciseId: this.exercise.id,
           globalSettings: this._globalSettings(),
           exerciseSettings: this._exerciseSettings(),

@@ -8,7 +8,9 @@ class AnswerReportingServiceMock
 {
   async reportAttempt() {}
 
-  async reportQuestion() {}
+  async reportQuestion() {
+    return null!;
+  }
 
   async sendCachedAnswers() {}
 
